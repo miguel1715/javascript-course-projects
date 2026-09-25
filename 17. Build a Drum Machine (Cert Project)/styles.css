@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+   /* outline: 1px solid red; /*REMOVE THIS - OUTLINE GUIDANCE FOR STYLING*/
+}
+
+body {
+    padding: 1rem;
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    font-family: system-ui, sans-serif;
+    background-color: rgb(25, 10, 2) ; /*try to make a wood texture somehow.. */
+    color: white;
+}
+
+#drum-machine {
+    width: 90%;
+    max-width: 1200px;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+    margin: 0 0 3rem;
+    font-size: 3rem;
+    letter-spacing: 0.4em;
+}
+
+.panel {
+    width: 100%;
+    padding: 1rem 2rem 2rem;
+    border: 2px solid white;
+}
+
+.top-row {
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+#display {
+    min-height: 3.5rem;
+    min-width: 35%;
+    padding: 0 1rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+}
+
+.controls {
+    min-height: 3.5rem;
+    min-width: 35%;
+    padding: 0 1rem;
+    margin: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+}
+
+#pad-bank {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 250px);
+    justify-content: space-evenly;
+    gap: 2rem;
+    padding: 2rem;
+    border: 2px solid white;
+    border-radius: 15px;
+}
+
+.drum-pad {
+    height: 6rem;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+}

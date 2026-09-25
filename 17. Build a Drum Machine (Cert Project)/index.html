@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drum Machine</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <div id="drum-machine">
+        <h1>Drum Machine</h1>
+        <div class="panel"> <!--MAIN DRUM BOARD-->
+            <div class="top-row">
+                <p id="display">#display</p> <!--WHERE THE NAME OF THE SOUND CLICKED APPEARS-->
+                <div class="controls"> .controls</div><!-- THIS IS WHERE THE CONTROLS WILL GO AT THE END -->
+            </div>
+            <div id="pad-bank"> <!--ALL THE BUTTONS FOR THE DRUM SOUNDS-->
+                <button class="drum-pad" id="Heater-1">Q
+                    <audio class="clip" src="https://cdn.freecodecamp.org/curriculum/drum/Heater-1.mp3" id="Q"></audio>
+                </button>
+                <button class="drum-pad" id="Heater-2">W
+                    <audio class="clip" src="https://cdn.freecodecamp.org/curriculum/drum/Heater-2.mp3" id="W"></audio>
+                </button>
+                <button class="drum-pad" id="Heater-3">E
+                    <audio class="clip" src="https://cdn.freecodecamp.org/curriculum/drum/Heater-3.mp3" id="E"></audio>
+                </button>
+                <button class="drum-pad" id="Heater-4">A
+                    <audio class="clip" src="https://cdn.freecodecamp.org/curriculum/drum/Heater-4_1.mp3" id="A"></audio>
+                </button>
+                <button class="drum-pad" id="Clap">S
+                    <audio class="clip" src="https://cdn.freecodecamp.org/curriculum/drum/Heater-6.mp3" id="S"></audio>
+                </button>
+                <button class="drum-pad" id="Open-HH">D
+                    <audio class="clip" src="https://cdn.freecodecamp.org/curriculum/drum/Dsc_Oh.mp3" id="D"></audio>
+                </button>
+                <button class="drum-pad" id="Kick-n-Hat">Z
+                    <audio class="clip" src="https://cdn.freecodecamp.org/curriculum/drum/Kick_n_Hat.mp3" id="Z"></audio>
+                </button>
+                <button class="drum-pad" id="Kick">X
+                    <audio class="clip" src="https://cdn.freecodecamp.org/curriculum/drum/RP4_KICK_1.mp3" id="X"></audio>
+                </button>
+                <button class="drum-pad" id="Closed-HH">C
+                    <audio class="clip" src="https://cdn.freecodecamp.org/curriculum/drum/Cev_H2.mp3" id="C"></audio>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
