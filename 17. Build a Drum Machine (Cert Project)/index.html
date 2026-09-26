@@ -4,15 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drum Machine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
     <div id="drum-machine">
         <h1>Drum Machine</h1>
         <div class="panel"> <!--MAIN DRUM BOARD-->
-            <div class="top-row">
+            <div class="side-panel">
                 <p id="display">#display</p> <!--WHERE THE NAME OF THE SOUND CLICKED APPEARS-->
-                <div class="controls"> .controls</div><!-- THIS IS WHERE THE CONTROLS WILL GO AT THE END -->
+                <div class="controls">   <!-- THIS IS WHERE THE CONTROLS WILL GO AT THE END -->
+                    <button class="power" aria-label="Power">⏻</button>
+                    <div class="volume">
+                        <label for="volume">VOL</label>
+                        <input type="range" id="volume" min="0" max="100" value="70">
+                    </div>
+                </div>
             </div>
             <div id="pad-bank"> <!--ALL THE BUTTONS FOR THE DRUM SOUNDS-->
                 <button class="drum-pad" id="Heater-1">Q

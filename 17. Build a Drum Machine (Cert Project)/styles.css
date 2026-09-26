@@ -1,6 +1,16 @@
+:root {
+  --bg:        #0a0a0a;   /* page background — near black */
+  --chassis:   #1c1c1e;   /* machine body */
+  --chassis-2: #141416;   /* darker, for the body gradient */
+  --inset:     #0d0d0f;   /* recessed areas */
+  --pad-face:  #1d1d1e;   /* pad rubber face */
+  --text:      #d6d6d6;   /* labels */
+  --glow:      #ff2d2d;   /* the pad light */
+}
+
 * {
     box-sizing: border-box;
-   /* outline: 1px solid red; /*REMOVE THIS - OUTLINE GUIDANCE FOR STYLING*/
+    /*outline: 1px solid red; /*REMOVE THIS - OUTLINE GUIDANCE FOR STYLING*/
 }
 
 body {
@@ -10,76 +20,219 @@ body {
     justify-content: center;
     align-items: stretch;
     font-family: system-ui, sans-serif;
-    background-color: rgb(25, 10, 2) ; /*try to make a wood texture somehow.. */
+    background-color: var(--bg) ; /*try to make a wood texture somehow.. */
     color: white;
 }
 
 #drum-machine {
     width: 90%;
-    max-width: 1200px;
-    padding: 0 2rem;
+    max-width: 1100px;
+    padding: 1rem 2rem;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    background: linear-gradient(180deg, var(--chassis) 0%, var(--chassis-2) 100%);
+    border-radius: 12px;
 }
 
 h1 {
+    font-family: Impact, 'Anton', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(2rem, 5vw, 45px);
+    letter-spacing: 1.1em;
+    margin: 1rem 0 5rem;
+    margin-right: -1.1em;
+    color: #d6d6d6;
     text-align: center;
-    margin: 0 0 3rem;
-    font-size: 3rem;
-    letter-spacing: 0.4em;
 }
 
 .panel {
     width: 100%;
-    padding: 1rem 2rem 2rem;
-    border: 2px solid white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    align-items: stretch;
+    border: 1px solid var(--text);
+    border-radius: 16px;
+    background: var(--inset);
+    
+    box-shadow:
+    inset 0 2px 8px rgba(0, 0, 0, 0.7),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.06);
+
+    padding: 1.5rem;
 }
 
-.top-row {
+.side-panel {
     display: flex;
-    justify-content:space-around;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
 }
 
 #display {
-    min-height: 3.5rem;
-    min-width: 35%;
+    min-height: 5rem;
+    min-width: 75%;
     padding: 0 1rem;
-    margin: 0;
+    margin: 0 auto 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid white;
+
+    font-family: 'VT323', monospace;
+    font-size: 2rem;
+    letter-spacing: 0.50rem;
+    color: #ff3b30;
+
+    background: #1f1214;
+    border-radius: 4px;
+
+    text-shadow:
+      0 0 6px rgba(255, 59, 48, 0.9),
+      0 0 18px rgba(255, 59, 48, 0.45);
+    
+    box-shadow:
+      inset 0 0 30px rgba(0, 0, 0, 0.844),
+      inset 0 0 25px rgba(49, 10, 8, 0.728); 
 }
 
 .controls {
-    min-height: 3.5rem;
-    min-width: 35%;
-    padding: 0 1rem;
-    margin: 0;
+    min-height: 7rem;
+    padding: 1rem;
     margin: 0;
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
+    gap: 1rem;
+}
+
+.power {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 45, 45, 0.5);
+    background: var(--pad-face);
+    color: #ff3b30;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    border: 2px solid white;
+    box-shadow:
+    0 0 6px rgba(255, 45, 45, 0.35),
+    inset 0 0 8px rgba(255, 45, 45, 0.1),
+    0 3px 6px rgba(0, 0, 0, 0.8);
+    transition: all 0.15s;
+}
+
+.volume {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.volume label {
+  font-family: 'VT323', monospace;
+  font-size: 1.3rem;
+  color: var(--text);
+  letter-spacing: 0.1em;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;        /* strip the browser's default slider */
+  appearance: none;
+  background: transparent;
+  width: 120px;
+  cursor: pointer;
+}
+
+/* the groove — Chrome/Safari/Edge */
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--text);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.9);   /* recessed */
+}
+
+/* the handle — Chrome/Safari/Edge */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ff3b30;
+  margin-top: -5px;                 /* centres it on the 6px track */
+  box-shadow: 0 0 8px rgba(255, 59, 48, 0.7);
+}
+
+/* Firefox needs its own, identical */
+input[type="range"]::-moz-range-track {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--text);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border: none;
+  border-radius: 50%;
+  background: #ff3b30;
+  box-shadow: 0 0 8px rgba(255, 59, 48, 0.7);
 }
 
 #pad-bank {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, 250px);
-    justify-content: space-evenly;
-    gap: 2rem;
-    padding: 2rem;
-    border: 2px solid white;
+    grid-template-columns: repeat(3, 105px);
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
     border-radius: 15px;
 }
 
 .drum-pad {
-    height: 6rem;
-    border-radius: 20px;
-    background-color: black;
-    color: white;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    border: 2px solid var(--glow);
+    background: var(--pad-face);
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    box-shadow:
+      0 0 8px var(--glow),
+      inset 0 0 14px rgba(255, 45, 45, 0.18),
+      0 3px 6px rgba(0, 0, 0, 0.8); 
+    cursor: pointer;
+    transition: transform 0.06s, box-shadow 0.06s;
 }
+
+
+
+/*ANIMATIONS*/
+
+@keyframes pulse {
+  0%   { box-shadow: 0 0 12px var(--glow), inset 0 0 14px rgba(255,45,45,0.18); }
+  40%  { box-shadow: 0 0 40px var(--glow), inset 0 0 34px rgba(255,45,45,0.55); }
+  100% { box-shadow: 0 0 12px var(--glow), inset 0 0 14px rgba(255,45,45,0.18); }
+}
+
+@keyframes pulse-small {
+  0%   { box-shadow: 0 0 6px rgba(255,45,45,0.35), 0 3px 6px rgba(0,0,0,0.8); }
+  40%  { box-shadow: 0 0 14px var(--glow),         0 3px 6px rgba(0,0,0,0.8); }
+  100% { box-shadow: 0 0 6px rgba(255,45,45,0.35), 0 3px 6px rgba(0,0,0,0.8); }
+}
+
+.drum-pad.active {
+  animation: pulse 0.35s ease-out;
+  transform: translateY(2px);
+}
+
+.power.active {
+  animation: pulse-small 0.35s ease-out;
+  transform: translateY(2px);
+}
+
+
