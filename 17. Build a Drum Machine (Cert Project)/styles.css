@@ -190,8 +190,9 @@ input[type="range"]::-moz-range-thumb {
 
 #pad-bank {
     width: 100%;
+    max-width: 360px;
     display: grid;
-    grid-template-columns: repeat(3, 105px);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     justify-content: center;
     gap: 1rem;
     padding: 1rem;
@@ -285,3 +286,37 @@ input[type="range"]::-moz-range-thumb {
 }
 
 
+/* RESPONSIVENESS */
+
+
+@media (max-width: 700px) {
+  h1 {
+    font-size: 1.8rem;
+    letter-spacing: 0.3em;
+    margin: 1.5rem 0 3rem;
+    margin-right: -0.3em;
+  }
+  
+  #drum-machine {
+    padding: 0;
+  }
+
+  .panel {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+
+  input[type="range"] {
+  width: 100%;
+  max-width: 150px;
+}
+
+.side-panel, #pad-bank {
+  min-width: 0;
+}
+
+#display {
+  margin-bottom: 0;
+  margin-top: 1rem;
+}
+}
