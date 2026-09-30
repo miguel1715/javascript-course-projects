@@ -45,6 +45,10 @@
      padding: 0.5rem;
 }
 
+#html-output, #preview {
+    overflow-y: auto;
+}
+
  @media (min-width: 600px) {
      #markdown-input, #html-output, #preview {
          height: 230px;
