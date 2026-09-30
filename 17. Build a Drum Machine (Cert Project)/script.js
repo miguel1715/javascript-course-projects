@@ -3,7 +3,7 @@
     const volSlider = document.getElementById("volume");
     const audioElements = document.querySelectorAll(".clip");
     const powerButton = document.querySelector(".power");
-    let powerState = true;
+    let powerState = false;
     const drumMachine = document.getElementById("drum-machine");
 
 

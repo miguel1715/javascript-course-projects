@@ -1,16 +1,15 @@
 :root {
-  --bg:        #0a0a0a;   /* page background — near black */
-  --chassis:   #1c1c1e;   /* machine body */
-  --chassis-2: #141416;   /* darker, for the body gradient */
-  --inset:     #0d0d0f;   /* recessed areas */
-  --pad-face:  #1d1d1e;   /* pad rubber face */
-  --text:      #d6d6d6;   /* labels */
-  --glow:      #ff2d2d;   /* the pad light */
+  --bg:        #0a0a0a;
+  --chassis:   #1c1c1e;
+  --chassis-2: #141416;
+  --inset:     #0d0d0f;
+  --pad-face:  #1d1d1e;
+  --text:      #d6d6d6;
+  --glow:      #ff2d2d;
 }
 
 * {
     box-sizing: border-box;
-    /*outline: 1px solid red; /*REMOVE THIS - OUTLINE GUIDANCE FOR STYLING*/
 }
 
 body {
@@ -20,7 +19,7 @@ body {
     justify-content: center;
     align-items: stretch;
     font-family: system-ui, sans-serif;
-    background-color: var(--bg) ; /*try to make a wood texture somehow.. */
+    background-color: var(--bg) ;
     color: white;
 }
 
@@ -289,21 +288,25 @@ input[type="range"]::-moz-range-thumb {
 /* RESPONSIVENESS */
 
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   h1 {
-    font-size: 1.8rem;
+    font-size: 2.7rem;
     letter-spacing: 0.3em;
-    margin: 1.5rem 0 3rem;
-    margin-right: -0.3em;
+    margin: 2.5rem 0 3rem;
+    margin-right: -0.3em; /*letter spacing dif*/
   }
   
   #drum-machine {
     padding: 0;
+    max-width: 550px;
   }
 
   .panel {
     grid-template-columns: 1fr;
-    padding: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   input[type="range"] {
@@ -315,8 +318,21 @@ input[type="range"]::-moz-range-thumb {
   min-width: 0;
 }
 
+.side-panel {
+  width: 100%;
+}
+
 #display {
   margin-bottom: 0;
   margin-top: 1rem;
 }
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 2rem;
+    letter-spacing: 0.3em;
+    margin: 3.5rem 0 3rem;
+    margin-right: -0.3em; /*letter spacing dif*/
+  }
 }
