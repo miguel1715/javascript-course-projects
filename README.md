@@ -1,26 +1,22 @@
-# JavaScript Course — Projects (FreeCodeCamp)
+# JavaScript Course — Projects (freeCodeCamp)
 
-This repository contains **projects and larger exercises** built while completing the FreeCodeCamp JavaScript curriculum.
+Finished projects from freeCodeCamp's JavaScript curriculum. Lesson code and practice
+exercises live in [javascript-course-classes](https://github.com/miguel1715/javascript-course-classes).
 
-## Purpose
-- Apply JavaScript fundamentals in real examples
-- Build small projects and final projects
-- Track progress through the curriculum
+This is where JavaScript stopped being exercises and started being things that actually work. The classes repo is where I work through the concepts; this is where I have to use them for something real and figure out the parts nobody taught me. I try to take each project past what the course asks for — how far depends on the project.
 
-## Planned Content
-- Mini projects
-- Course labs
-- Certification projects
+Each folder has its own README covering what the course required and what I
+built.
 
-## Tech Stack
-- JavaScript (ES6+)
-- HTML
-- CSS
+## Projects
+
+| Project | Live | Code | Notes |
+|---|---|---|---|
+| Drum Machine | [demo](https://miguel-drum-machine.netlify.app) | [source](./drum-machine-fcc/) | Certification project |
+| Markdown to HTML Converter | [demo](https://markdown-converter-fcc.netlify.app) | [source](./markdown-to-html-fcc/) | |
+
+## Built with
+HTML, CSS and JavaScript. No frameworks or libraries.
 
 ## Status
-- In progress — projects will be added as I advance through the course.
-
-## About This Repo
-- Focused on learning by building
-- Projects may start simple and grow in complexity
-- Emphasis on fundamentals over frameworks
+In progress. Three certification projects left.
