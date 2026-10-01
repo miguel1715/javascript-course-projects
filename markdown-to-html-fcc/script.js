@@ -1,10 +1,18 @@
-function convertMarkdown() {
-    const markdownText = document.getElementById("markdown-input").value;
+const inputText = document.getElementById("markdown-input");
+const htmlOutput = document.getElementById("html-output");
+const htmlPreview = document.getElementById("preview");
+const themeButton = document.getElementById("theme-toggle");
+const root = document.documentElement;
 
-    const html = markdownText
+// PARSER
+function convertMarkdown() {
+    const html = inputText.value
         .replace(/^# (.+)/gm, "<h1>$1</h1>")
         .replace(/^## (.+)/gm, "<h2>$1</h2>")
         .replace(/^### (.+)/gm, "<h3>$1</h3>")
+        .replace(/^#### (.+)/gm, "<h4>$1</h4>")
+        .replace(/^##### (.+)/gm, "<h5>$1</h5>")
+        .replace(/^###### (.+)/gm, "<h6>$1</h6>")
         .replace(/\*\*(.+?)\*\*|__(.+?)__/g, "<strong>$1$2</strong>")
         .replace(/\*(.+?)\*|_(.+?)_/g, "<em>$1$2</em>")
         .replace(/!\[(.+?)\]\((.+?)\)/g, '<img alt="$1" src="$2">')
@@ -14,13 +22,19 @@ function convertMarkdown() {
     return html;
 }
 
-const inputText = document.getElementById("markdown-input");
-const htmlOutput = document.getElementById("html-output");
-const htmlPreview = document.getElementById("preview");
-
+// INPUT MANIPULATION
 inputText.addEventListener("input", () => {
     const conversion = convertMarkdown();
 
     htmlOutput.innerText = conversion;
     htmlPreview.innerHTML = conversion;
+})
+
+// THEME SWITCHER
+themeButton.addEventListener("click", () => {
+    if (root.hasAttribute("data-theme")) {
+        root.removeAttribute("data-theme");
+    } else {
+        root.setAttribute("data-theme", "light");
+    }
 })
