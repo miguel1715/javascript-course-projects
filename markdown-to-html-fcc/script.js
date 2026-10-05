@@ -13,11 +13,14 @@ function convertMarkdown() {
   let inList = false;
   // state variable to track if ``` has initiated.
   let inCodeBlock = false;
+  // state variable to track if <ol> has initiated.
+  let inOrderedList = false;
 
   for (const elem of lineSeparation) {
     
     const listCheck = /^[-*] /.test(elem);
     const codeBlockCheck = /^```/.test(elem);
+    const orderedListCheck = /\d+\. /.test(elem);
 
     // parses codeBlock elements
     if (codeBlockCheck) {
@@ -41,19 +44,37 @@ function convertMarkdown() {
         continue;
     }  
     
+    // parses unordered list elements
     if (listCheck) {
-      // parses list elements
+       if (inOrderedList) { // closes an ordered list left open before a bullet list
+        convertedLines.push("</ol>");
+        inOrderedList = false;
+      }
       const html = elem.replace(/^[-*] (.+)/, "<li>$1</li>");
       if (!inList) {
         convertedLines.push("<ul>");
         inList = true;
       }
       convertedLines.push(convertInline(html));
-    } else {
-      // the else closer only fires when another line follows
+    } else if (orderedListCheck) { // parses ordered list elements
+        if (inList) { // closes a bullet list left open before an ordered list
+          convertedLines.push("</ul>");
+          inList = false;
+        }
+      const html = elem.replace(/\d+\. (.+)/, "<li>$1</li>");
+        if (!inOrderedList) {
+          convertedLines.push("<ol>");
+          inOrderedList = true;
+        }
+      convertedLines.push(convertInline(html));
+    } else { // the else closer only fires when another line follows
       if (inList) {
         convertedLines.push("</ul>");
         inList = false;
+      }
+      if (inOrderedList) { // moved here from your old ordered list else
+        convertedLines.push("</ol>");
+        inOrderedList = false;
       }
       const html = elem
         .replace(/^# (.+)/, "<h1>$1</h1>")
@@ -62,11 +83,12 @@ function convertMarkdown() {
         .replace(/^#### (.+)/, "<h4>$1</h4>")
         .replace(/^##### (.+)/, "<h5>$1</h5>")
         .replace(/^###### (.+)/, "<h6>$1</h6>")
-        .replace(/^> (.+)/, "<blockquote>$1</blockquote>");
+        .replace(/^> (.+)/, "<blockquote>$1</blockquote>")
+        .replace(/^---$/, "<hr>");
 
       convertedLines.push(convertInline(html));
     }
-  }
+  } 
   // closes the unordered list after the loop ends when nothing follow the last list item.
   if (inList) {
      convertedLines.push("</ul>");
@@ -76,6 +98,11 @@ function convertMarkdown() {
   if (inCodeBlock) {
      convertedLines.push("</code></pre>");
      inCodeBlock = false;
+  }
+  // closes the ordered list after the loop ends when nothing follow the last list item.
+  if(inOrderedList) {
+    convertedLines.push("</ol>");
+    inOrderedList = false;
   }
 
   return convertedLines.join("\n");
