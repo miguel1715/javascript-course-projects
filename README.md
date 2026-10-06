@@ -13,7 +13,7 @@ built.
 | Project | Live | Code | Notes |
 |---|---|---|---|
 | Drum Machine | [demo](https://miguel-drum-machine.netlify.app) | [source](./drum-machine-fcc/) | Certification project |
-| Markdown to HTML Converter | [demo](https://markdown-converter-fcc.netlify.app) | [source](./markdown-to-html-fcc/) | |
+| Markdown to HTML Converter | [demo](https://markdown-converter-fcc.netlify.app) | [source](./markdown-to-html-fcc/) | Certification project |
 
 ## Built with
 HTML, CSS and JavaScript. No frameworks or libraries.
