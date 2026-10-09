@@ -6,18 +6,20 @@ That second part is where it got hard, and I think it's why freeCodeCamp keeps t
 
 [Live demo](https://markdown-converter-fcc.netlify.app/)
 
-![Markdown converter in dark theme, markdown on the left and rendered preview on the right](screenshot-dark.png)
+![Markdown converter in dark theme, markdown on the left and rendered preview on the right](screenshots/screenshot-dark.png)
 
-![Markdown converter in light theme, markdown on the left and rendered preview on the right](screenshot-light.png)
+![Markdown converter in light theme, markdown on the left and rendered preview on the right](screenshots/screenshot-light.png)
 
 
 ## The brief
 
-This is one of the five JavaScript certification projects. The course provided the HTML and CSS, and my job was the JavaScript: a function called `convertMarkdown` that uses regular expressions to turn the text in `#markdown-input` into HTML as you type. It had to handle headings (levels 1 to 3), bold (`**` or `__`), italic (`*` or `_`), images, links and blockquotes. The raw HTML goes into `#html-output` and the rendered result into `#preview`.
+This is one of the five JavaScript certification projects. The course provided the HTML and CSS (check screenshot below), and my job was the JavaScript: a function called `convertMarkdown` that uses regular expressions to turn the text in `#markdown-input` into HTML as you type. It had to handle headings (levels 1 to 3), bold (`**` or `__`), italic (`*` or `_`), images, links and blockquotes. The raw HTML goes into `#html-output` and the rendered result into `#preview`.
+
+![HTML and CSS provided by the course](screenshots/screenshot-fcc.png)
 
 ## What I built beyond it
 
-The course supplied a starting HTML and CSS. I redesigned the whole interface and extended the parser well past the required features.
+I redesigned the whole interface and extended the parser well past the required features.
 
 ### Interface (HTML and CSS)
 
